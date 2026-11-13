@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İcadın Tarihçesi</title>
+<meta name="description" content="İcatların bilinmeyen hikâyeleri: her gün 2 icat videosu ve her akşam Zaman Yolcuları.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#f6efe3;--kart:#fffaf2;--yazi:#2a2118;--soluk:#6e5f4f;--vurgu:#c2562b;--vurgu2:#1f6f78;--cizgi:#e4d6c1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#16120e;--kart:#221b15;--yazi:#f3e9da;--soluk:#b3a28c;--vurgu:#ef8a5a;--vurgu2:#2a8a94;--cizgi:#3a2f25}}
+:root[data-theme="dark"]{--zemin:#16120e;--kart:#221b15;--yazi:#f3e9da;--soluk:#b3a28c;--vurgu:#ef8a5a;--vurgu2:#2a8a94;--cizgi:#3a2f25}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--yazi);font:16px/1.55 Inter,system-ui,sans-serif}
+a{color:inherit}
+.kap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 32px;text-align:center}
+.logo{font-size:56px;line-height:1}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(36px,7vw,64px);margin:12px 0 8px;letter-spacing:-.5px}
+.alt{color:var(--soluk);font-size:18px;margin:0 auto;max-width:560px}
+.butonlar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.butonlar a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;background:var(--kart);border:1.5px solid var(--cizgi)}
+.butonlar a.ana{background:var(--vurgu);border-color:var(--vurgu);color:#fff}
+.yakinda{background:var(--kart);border:1.5px solid var(--cizgi);border-radius:18px;padding:16px 18px;margin:8px 0 40px}
+.yakinda h2{font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--vurgu);margin:0 0 10px}
+.yakinda ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.yakinda li{display:flex;align-items:center;gap:10px}
+.yakinda li span{font-size:24px}.yakinda li i{color:var(--soluk);font-style:normal;font-size:14px;margin-left:auto}
+section{margin-bottom:56px}
+.bas{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2.buyuk{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4.5vw,38px);margin:0}
+.bas small{color:var(--soluk)}
+.aciklama{color:var(--soluk);margin:0 0 18px;max-width:720px}
+.ekip{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.ekip span{padding:6px 12px;border-radius:999px;background:var(--kart);border:1px solid var(--cizgi);font-size:14px}
+.izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.kart{background:var(--kart);border:1.5px solid var(--cizgi);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
+.kart:hover{transform:translateY(-3px)}
+.kart>a{position:relative;display:block;aspect-ratio:9/12;overflow:hidden;background:#000}
+.kart img{width:100%;height:100%;object-fit:cover;display:block}
+.oynat{position:absolute;right:12px;bottom:12px;width:44px;height:44px;border-radius:50%;background:var(--vurgu);color:#fff;display:grid;place-items:center;font-size:18px;box-shadow:0 4px 14px #0005}
+.govde{padding:14px 16px 18px}
+.govde h3{font-size:17px;line-height:1.3;margin:0 0 6px}
+.govde p{margin:0;color:var(--soluk);font-size:14.5px}
+.secim{background:var(--vurgu2);color:#fff;border-radius:22px;padding:28px 24px;text-align:center}
+.secim h2{font-family:Fraunces,Georgia,serif;font-size:30px;margin:0 0 8px}
+.secim p{margin:0 0 18px;opacity:.92}
+.secim a{display:inline-block;background:#fff;color:#1f6f78;font-weight:700;padding:12px 20px;border-radius:999px;text-decoration:none}
+#oynatici{position:fixed;inset:0;z-index:50;display:grid;place-items:center}
+#oynatici[hidden]{display:none}
+.perde{position:absolute;inset:0;background:#000c}
+.cerceve{position:relative;height:min(88vh,calc(92vw*16/9));aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 10px 40px #000a}
+.cerceve iframe{width:100%;height:100%;border:0;display:block}
+.kapat{position:absolute;top:8px;right:8px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:18px;cursor:pointer}
+footer{border-top:1px solid var(--cizgi);padding:24px 0 40px;color:var(--soluk);font-size:14px;text-align:center}
+@media (max-width:520px){.izgara{grid-template-columns:repeat(2,1fr);gap:10px}.govde{padding:10px 10px 12px}.govde h3{font-size:14.5px}.govde p{display:none}.oynat{width:34px;height:34px;font-size:14px}header{padding-top:36px}}
+</style>
+</head>
+<body>
+<div class="kap">
+<header>
+  <div class="logo">💡</div>
+  <h1>İcadın Tarihçesi</h1>
+  <p class="alt">İcatların bilinmeyen hikâyeleri. Her gün 2 icat videosu, her akşam Zaman Yolcuları.</p>
+  <div class="butonlar">
+    <a class="ana" href="https://www.instagram.com/icatlar35/" target="_blank" rel="noopener">📸 Instagram</a>
+    <a href="https://www.youtube.com/channel/UCMoK-Fa4oOecBHNL3lXoWAQ" target="_blank" rel="noopener">▶️ YouTube</a>
+    <a href="https://www.tiktok.com/@worldhouse35" target="_blank" rel="noopener">🎵 TikTok</a>
+  </div>
+</header>
+
+<div class="yakinda">
+  <h2>Sırada ne var</h2>
+  <ul>
+<li><span>⏳</span><b>Zaman Yolcuları Bölüm 4</b><i>bu akşam 20:00</i></li>
+<li><span>🪂</span><b>Paraşüt</b><i>yarın 12:00</i></li>
+<li><span>🏢</span><b>Asansör</b><i>yarın 15:30</i></li>
+  </ul>
+</div>
+
+<section id="zaman">
+  <div class="bas"><h2 class="buyuk">⏳ Zaman Yolcuları</h2><small>Her akşam 20:00</small></div>
+  <p class="aciklama">Dedenin eski saati onları geçmişe götürüyor. El-Cezeri'nin atölyesinden Hezarfen'in kulesine, tarihin içinde bir macera.</p>
+  <div class="ekip"><span>Onur abi</span><span>Kemal</span><span>Arif</span><span>Alparslan</span><span>Çınar</span></div>
+  <div class="izgara">
+<article class="kart"><a href="https://www.youtube.com/shorts/m9RfPeTLxTU" data-vid="m9RfPeTLxTU" target="_blank" rel="noopener"><img src="bolum3.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Zaman Yolcuları Bölüm 3: Robot Hizmetçi Sultan Sırılsıklam Oldu!</h3><p>El-Cezeri sultana yeni icadını gösterdi: ibrikten su döken, sonra havlu uzatan robot hizmetçi! Alparslan yine bir düğme buldu… ve sultan sırılsıklam oldu 😅 Saat tamir oldu, çocuklar eve döndü. El-Cezeri&#x27;nin hediyesi olan…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/ZB4cb1eMmbA" data-vid="ZB4cb1eMmbA" target="_blank" rel="noopener"><img src="bolum2.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Zaman Yolcuları Bölüm 2: Fil Saati Kemal Saatin İçine Saklandı!</h3><p>El-Cezeri çocukları atölyesine götürdü: davul çalan robot müzisyenler, su döken tavus kuşu… Tam o sırada sultan geldi! Herkes saklandı, Kemal ise dev fil saatinin içine girdi. Peki saat çalışınca ne oldu?</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/k3FjJ_1oyQk" data-vid="k3FjJ_1oyQk" target="_blank" rel="noopener"><img src="bolum1.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Zaman Yolcuları Bölüm 1: Dedenin Saati 1206&#x27;da El-Cezeri ile Tanıştılar!</h3><p>Onur, Kemal, Arif ve Alparslan dedelerinin bodrumunda akrebi geriye dönen gizemli bir saat buldu. Alparslan düğmeye bastı ve dört kardeş kendini 1206 yılında, Diyarbakır&#x27;da, dünyanın ilk robotlarını yapan El-Cezeri&#x27;nin…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/_mhcF1_zkXg" data-vid="_mhcF1_zkXg" target="_blank" rel="noopener"><img src="anitkabir.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Zaman Yolcuları Anıtkabir&#x27;de! Aslanlı Yol, Nöbet Değişimi ve 40 Tonluk Lahit</h3><p>Onur, Kemal, Arif ve Alparslan bu kez zamanda değil, Ankara&#x27;da: Ata&#x27;larını ziyaret ettiler. Aslanlı Yol&#x27;daki 24 aslan, nöbet değişimi, 40 tonluk tek parça mermer lahit ve Atatürk&#x27;ün binlerce kitabı… Alparslan da Ata&#x27;sına bir…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/sB4u-RSoZf4" data-vid="sB4u-RSoZf4" target="_blank" rel="noopener"><img src="duyuru.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Zaman Yolcuları Bu Akşam Başlıyor! Önce Bonus: Anıtkabir</h3><p>Onur, Kemal, Arif ve Alparslan bu akşam saat 20.00&#x27;de yepyeni bir serüvene çıkıyor. Ama önce size bir bonus videomuz var: Anıtkabir&#x27;e gittik! 🇹🇷</p></div></article>
+  </div>
+</section>
+
+<section id="icatlar">
+  <div class="bas"><h2 class="buyuk">💡 İcatlar</h2><small>16 hikâye</small></div>
+  <p class="aciklama">Her biri yaklaşık bir buçuk dakika. Karta dokun, videoyu aç.</p>
+  <div class="izgara">
+<article class="kart"><a href="https://www.youtube.com/shorts/wORwz3QZyXg" data-vid="wORwz3QZyXg" target="_blank" rel="noopener"><img src="trafik.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>İlk Trafik Lambası Patladı! Trafik Lambasının İcadı</h3><p>1868&#x27;de Londra&#x27;da Parlamento&#x27;nun önüne kırmızı ve yeşil gaz lambalı bir direk dikildi; fikir demiryolu mühendisi John Peake Knight&#x27;ındı. Ama yaklaşık bir ay sonra gaz sızdı ve lamba patladı! 1914&#x27;te Cleveland&#x27;da ilk…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/lu8CVcLec8w" data-vid="lu8CVcLec8w" target="_blank" rel="noopener"><img src="buzdolabi.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>İlk Buzdolabı Bir Otomobilden Pahalıydı! Buzdolabının İcadı</h3><p>1748&#x27;de İskoç bilim insanı William Cullen ilk kez yapay soğuk üretti. 1834&#x27;te Jacob Perkins buz yapan ilk makinenin patentini aldı, 1870&#x27;lerde Carl von Linde bu makineyi güvenilir hâle getirdi. 1913&#x27;te evler için ilk…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/0-Cfp8d5B7o" data-vid="0-Cfp8d5B7o" target="_blank" rel="noopener"><img src="bisiklet.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>İlk Bisikletin Pedalı Yoktu! Bisikletin İcadı</h3><p>1817&#x27;de Mannheim&#x27;da Karl Drais, ayaklarıyla yeri iterek giden tahta bir &quot;koşu makinesi&quot; yaptı. 1860&#x27;larda Paris&#x27;te ön tekerleğe pedal takıldı, sonra ön tekerlek kocaman oldu. 1885&#x27;te John Starley iki eşit tekerlek ve zinciri…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/iKkFI7b7fxA" data-vid="iKkFI7b7fxA" target="_blank" rel="noopener"><img src="rontgen.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Karanlık Odada Parlayan Ekran: Röntgen&#x27;in Keşfi</h3><p>1895&#x27;te Würzburg&#x27;da Wilhelm Röntgen görünmeyen bir ışın keşfetti ve tarihin ilk röntgen fotoğrafını çekti: eşi Anna&#x27;nın el kemikleri ve parmağındaki yüzük! 1901&#x27;de ilk Nobel Fizik Ödülü&#x27;nü kazandı ama patent almadı, herkes…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/7To6-ywZYaY" data-vid="7To6-ywZYaY" target="_blank" rel="noopener"><img src="otomobil.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>İlk Otomobil Duvara Çarptı! Bertha Benz&#x27;in 106 km&#x27;lik Yolculuğu</h3><p>1886&#x27;da Karl Benz benzinli otomobilin patentini aldı ama arabayı ünlü eden eşi Bertha Benz oldu: 1888&#x27;de iki oğluyla, kocasına söylemeden 106 km yol yaptı! Benzini eczaneden aldı, tıkanan yakıt borusunu şapka iğnesiyle açtı.…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/fvRSJ_gl8pw" data-vid="fvRSJ_gl8pw" target="_blank" rel="noopener"><img src="tekerlek.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Tekerleği Kim İcat Etti? Kimse Bilmiyor!</h3><p>İlk tekerlekler araba için değil, çömlek için yapıldı! MÖ 3500&#x27;lerde Mezopotamya&#x27;da çömlekçi çarkı dönüyordu. Bilinen en eski tahta tekerlek Slovenya&#x27;da, Ljubljana bataklığında aksıyla birlikte bulundu: tam 5.150 yaşında!…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/KMrcDACIS-g" data-vid="KMrcDACIS-g" target="_blank" rel="noopener"><img src="kalem.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Tükenmez Kalemi Bir Gazeteci İcat Etti: László Bíró</h3><p>1930&#x27;larda Budapeşte&#x27;de gazeteci László Bíró, dolma kaleminin akıtmasından bıkınca gazete mürekkebinden ilham aldı ve kardeşi György ile ucunda dönen bilye olan kalemi tasarladı. Savaşta Arjantin&#x27;e kaçtılar, 1950&#x27;de BIC…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/vYYULvHVsIo" data-vid="vYYULvHVsIo" target="_blank" rel="noopener"><img src="mikrodalga.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Cebindeki Çikolata Eridi ve Mikrodalga İcat Edildi</h3><p>1945&#x27;te mühendis Percy Spencer radar cihazlarının yanında çalışırken cebindeki çikolatanın eridiğini fark etti. Önce mısır taneleri patladı, sonra bir yumurta meslektaşının yüzünde! 1947&#x27;de satılan ilk mikrodalga fırın bir…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/iWLMvOhqDJA" data-vid="iWLMvOhqDJA" target="_blank" rel="noopener"><img src="ampul.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Binlerce Başarısız Deneme ve Bir Işık: Ampulün Hikâyesi</h3><p>1879&#x27;da Thomas Edison ve ekibi Menlo Park&#x27;ta uzun süre yanan bir ampul için binlerce malzemeyi tek tek denedi. Bu sırada İngiltere&#x27;de Joseph Swan da çalışan bir ampul yapmıştı. Yılbaşı gecesi Menlo Park ışıklarla aydınlandı,…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/-LuAN0A5Rz4" data-vid="-LuAN0A5Rz4" target="_blank" rel="noopener"><img src="penisilin.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Yıkanmadan Unutulan Tabak Milyonlarca Hayat Kurtardı: Penisilin</h3><p>1928&#x27;de Alexander Fleming tatile çıkarken bakteri tabaklarını yıkamadan masada bıraktı. Döndüğünde bir küfün çevresindeki bütün bakterilerin öldüğünü gördü: penisilin keşfedilmişti! 1940&#x27;ta Howard Florey ve Ernst Chain onu…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/BzbZlId3lZU" data-vid="BzbZlId3lZU" target="_blank" rel="noopener"><img src="cezeri.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>800 Yıl Önce Robot Yapan Türk Mühendis: El-Cezeri</h3><p>Fil Saati, su döken robot hizmetçi, kendi kendine çalan robot müzisyenler ve krank milli su pompaları… Diyarbakır&#x27;da Artuklu sarayında çalışan İsmail bin Rezzaz El-Cezeri, 1206&#x27;da 50 makinesini renkli çizimleriyle bir…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/pxHMQVFH4H8" data-vid="pxHMQVFH4H8" target="_blank" rel="noopener"><img src="ataturk.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>10 Kasım 1938, Saat 09.05… Atatürk&#x27;ü Saygı, Minnet ve Özlemle Anıyoruz</h3><p>🇹🇷 10 Kasım 1938, saat 09.05…</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/OAeEmvf7u1c" data-vid="OAeEmvf7u1c" target="_blank" rel="noopener"><img src="ucak.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Hezarfen Ahmed Çelebi&#x27;den Wright Kardeşlere: Uçuşun Hikâyesi</h3><p>Galata Kulesi&#x27;nden Üsküdar&#x27;a süzülen Hezarfen Ahmed Çelebi, 2000&#x27;den fazla uçuş yapan Otto Lilienthal ve 12 saniyelik uçuşla tarihi değiştiren Wright Kardeşler.</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/8BD9NP5faBA" data-vid="8BD9NP5faBA" target="_blank" rel="noopener"><img src="telefon.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Telefonu Kim İcat Etti? Bell, Meucci ve Gray</h3><p>14 Şubat 1876: Aynı gün, birkaç saat arayla aynı fikir için iki patent başvurusu! Graham Bell, Elisha Gray ve 10 doları olmadığı için patentini yenileyemeyen Antonio Meucci&#x27;nin hikâyesi.</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/x1bbiemhuZo" data-vid="x1bbiemhuZo" target="_blank" rel="noopener"><img src="radyo.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Radyoyu Kim İcat Etti? Marconi mi, Tesla mı?</h3><p>Kablo olmadan okyanusun öbür yakasına mesaj göndermek… Hertz görünmez dalgaları keşfetti, Marconi onları kullandı, Titanik&#x27;te yüzlerce kişi telsiz sayesinde kurtuldu. Ama Tesla&#x27;nın patent davası hikâyeyi değiştirdi.</p></div></article>
+<article class="kart"><a href="https://www.youtube.com/shorts/a6PGgAVXmCI" data-vid="a6PGgAVXmCI" target="_blank" rel="noopener"><img src="matbaa.jpg" alt="" loading="lazy" width="360" height="640"><span class="oynat">▶</span></a><div class="govde"><h3>Matbaayı Kim İcat Etti? Gutenberg&#x27;in Hikâyesi</h3><p>Bir kitabı kopyalamak bir zamanlar aylar sürerdi. Mainz&#x27;lı kuyumcu Johannes Gutenberg harfleri tek tek metalden dökünce her şey değişti. Peki dünyayı değiştiren adam neden zengin olamadı?</p></div></article>
+  </div>
+</section>
+
+<section class="secim">
+  <h2>🗳️ Sıradaki icadı sen seç</h2>
+  <p>Her videonun sonunda iki icat soruyoruz. En çok oy alan bir sonraki video oluyor.</p>
+  <a href="https://www.instagram.com/icatlar35/" target="_blank" rel="noopener">Oyunu Instagram'da ver 👇</a>
+</section>
+</div>
+<div id="oynatici" hidden>
+  <div class="perde"></div>
+  <div class="cerceve"><button class="kapat" aria-label="Kapat">✕</button><iframe allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe></div>
+</div>
+<script>
+(function(){
+  var o=document.getElementById("oynatici"),f=o.querySelector("iframe");
+  function kapat(){o.hidden=true;f.src="about:blank";document.body.style.overflow=""}
+  document.querySelectorAll("a[data-vid]").forEach(function(a){
+    a.addEventListener("click",function(e){
+      e.preventDefault();
+      f.src="https://www.youtube-nocookie.com/embed/"+a.dataset.vid+"?autoplay=1&playsinline=1&rel=0";
+      o.hidden=false;document.body.style.overflow="hidden";
+    });
+  });
+  o.querySelector(".perde").addEventListener("click",kapat);
+  o.querySelector(".kapat").addEventListener("click",kapat);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")kapat()});
+})();
+</script>
+<footer class="kap">İcadın Tarihçesi · @icatlar35<br>Müzik: J.S. Bach – Air (ABD Hava Kuvvetleri Bandosu, kamu malı)</footer>
+</body>
+</html>
