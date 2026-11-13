@@ -130,13 +130,14 @@ footer{border-top:1px solid var(--cizgi);padding:24px 0 40px;color:var(--soluk);
 (function(){
   var o=document.getElementById("oynatici"),f=o.querySelector("iframe");
   function kapat(){o.hidden=true;f.src="about:blank";document.body.style.overflow=""}
+  function ac(vid){
+    f.src="https://www.youtube-nocookie.com/embed/"+vid+"?autoplay=1&playsinline=1&rel=0";
+    o.hidden=false;document.body.style.overflow="hidden";
+  }
   document.querySelectorAll("a[data-vid]").forEach(function(a){
-    a.addEventListener("click",function(e){
-      e.preventDefault();
-      f.src="https://www.youtube-nocookie.com/embed/"+a.dataset.vid+"?autoplay=1&playsinline=1&rel=0";
-      o.hidden=false;document.body.style.overflow="hidden";
-    });
+    a.addEventListener("click",function(e){e.preventDefault();ac(a.dataset.vid)});
   });
+  var h=location.hash.match(/^#izle=([\w-]{11})$/);if(h)ac(h[1]);
   o.querySelector(".perde").addEventListener("click",kapat);
   o.querySelector(".kapat").addEventListener("click",kapat);
   document.addEventListener("keydown",function(e){if(e.key==="Escape")kapat()});
